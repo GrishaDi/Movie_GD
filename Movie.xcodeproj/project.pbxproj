@@ -14,6 +14,8 @@
 		045E797B289AF02E0048F9FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045E7979289AF02E0048F9FE /* LaunchScreen.storyboard */; };
 		04FC28B4289B739C002AD829 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC28B3289B739C002AD829 /* HomeViewController.swift */; };
 		04FC28B6289B73B9002AD829 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC28B5289B73B9002AD829 /* SearchViewController.swift */; };
+		04FC28B8289CCDCA002AD829 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC28B7289CCDCA002AD829 /* CollectionViewTableViewCell.swift */; };
+		04FC28BA289E2CD6002AD829 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC28B9289E2CD6002AD829 /* HomeViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		045E797C289AF02E0048F9FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04FC28B3289B739C002AD829 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04FC28B5289B73B9002AD829 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		04FC28B7289CCDCA002AD829 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		04FC28B9289E2CD6002AD829 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				045E7972289AF02D0048F9FE /* MainTabBarViewController.swift */,
-				04FC28B3289B739C002AD829 /* HomeViewController.swift */,
-				04FC28B5289B73B9002AD829 /* SearchViewController.swift */,
+				04FC28BB289E2CE3002AD829 /* Home View */,
+				04FC28BC289E2CF7002AD829 /* Search View */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -92,6 +96,24 @@
 			children = (
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		04FC28BB289E2CE3002AD829 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				04FC28B3289B739C002AD829 /* HomeViewController.swift */,
+				04FC28B7289CCDCA002AD829 /* CollectionViewTableViewCell.swift */,
+				04FC28B9289E2CD6002AD829 /* HomeViewHeader.swift */,
+			);
+			path = "Home View";
+			sourceTree = "<group>";
+		};
+		04FC28BC289E2CF7002AD829 /* Search View */ = {
+			isa = PBXGroup;
+			children = (
+				04FC28B5289B73B9002AD829 /* SearchViewController.swift */,
+			);
+			path = "Search View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,8 +186,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FC28BA289E2CD6002AD829 /* HomeViewHeader.swift in Sources */,
 				04FC28B6289B73B9002AD829 /* SearchViewController.swift in Sources */,
 				045E7973289AF02D0048F9FE /* MainTabBarViewController.swift in Sources */,
+				04FC28B8289CCDCA002AD829 /* CollectionViewTableViewCell.swift in Sources */,
 				045E796F289AF02D0048F9FE /* AppDelegate.swift in Sources */,
 				045E7971289AF02D0048F9FE /* SceneDelegate.swift in Sources */,
 				04FC28B4289B739C002AD829 /* HomeViewController.swift in Sources */,
