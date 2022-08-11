@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
         return table
     }()
     
+    let sectionTitles = ["Popular Movies", "Popular Series"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -50,7 +52,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,16 +67,39 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return view.bounds.height/3.5
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 35
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let defaultOffset = view.safeAreaInsets.top
         let offset = scrollView.contentOffset.y + defaultOffset
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+
+        if #available(iOS 14.0, *) {
+            var content = header.defaultContentConfiguration()
+            content.text = sectionTitles[section]
+            content.textProperties.alignment = .center
+            content.textProperties.font = UIFont.systemFont(ofSize: 18)
+            content.textProperties.color = .systemYellow
+            content.textProperties.transform = .lowercase
+            header.contentConfiguration = content
+        } else {
+            header.textLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+            header.textLabel?.textColor = .systemYellow
+            header.textLabel?.text = header.textLabel?.text?.lowercased()
+            header.textLabel?.textAlignment = .center
+        }
     }
 }

@@ -28,7 +28,6 @@ class HomeViewHeader: UIView {
     }()
     
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(headerImageView)
@@ -59,7 +58,7 @@ class HomeViewHeader: UIView {
         let randomFilmButtonConstraints = [
             randomFilmButton.centerXAnchor.constraint(equalTo: headerImageView.centerXAnchor),
             randomFilmButton.widthAnchor.constraint(equalTo: headerImageView.widthAnchor, multiplier: 0.35),
-            randomFilmButton.bottomAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: -15),
+            randomFilmButton.bottomAnchor.constraint(equalTo: headerImageView.bottomAnchor, constant: -30),
             randomFilmButton.heightAnchor.constraint(equalTo: randomFilmButton.widthAnchor, multiplier: 0.2)
         ]
         NSLayoutConstraint.activate(randomFilmButtonConstraints)
