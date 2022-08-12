@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum Sections: Int {
+    case PopularMovies = 0
+    case PopularSeries = 1
+}
+
 class HomeViewController: UIViewController {
 
     private let homeFeedTable: UITableView = {
@@ -29,6 +34,7 @@ class HomeViewController: UIViewController {
         
         let headerView = HomeViewHeader(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height/4))
         homeFeedTable.tableHeaderView = headerView
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -93,12 +99,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             content.textProperties.alignment = .center
             content.textProperties.font = UIFont.systemFont(ofSize: 18)
             content.textProperties.color = .systemYellow
-            content.textProperties.transform = .lowercase
+            content.textProperties.transform = .capitalized
             header.contentConfiguration = content
         } else {
             header.textLabel?.font = .systemFont(ofSize: 20, weight: .medium)
             header.textLabel?.textColor = .systemYellow
             header.textLabel?.text = header.textLabel?.text?.lowercased()
+            header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
             header.textLabel?.textAlignment = .center
         }
     }
