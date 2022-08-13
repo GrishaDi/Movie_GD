@@ -69,6 +69,30 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        
+        switch indexPath.section {
+        case Sections.PopularMovies.rawValue:
+            APICaller.shared.getPopularMovies { result in
+                switch result {
+                case .success(let films):
+                    cell.configure(with: films)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.PopularSeries.rawValue:
+            APICaller.shared.getPopularSeries { result in
+                switch result {
+                case .success(let series):
+                    cell.configure(with: series)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        default:
+            return UITableViewCell()
+        }
+        
         return cell
     }
     

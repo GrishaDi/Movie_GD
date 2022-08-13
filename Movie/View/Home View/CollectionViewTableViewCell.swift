@@ -42,18 +42,22 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     public func configure(with films: [Film]) {
         self.films = films
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return films.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilmCollectionViewCell.identifier, for: indexPath) as? FilmCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.configure(with: "")
+        guard let model = films[indexPath.row].poster_path else { return UICollectionViewCell()}
+        cell.configure(with: model)
         
         return cell
     }
