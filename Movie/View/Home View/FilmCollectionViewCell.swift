@@ -17,6 +17,12 @@ class FilmCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    //TODO: Настроить и разместить лейбл с названием фильма/сериала в ячейке, под постером (2:30 (2:37)), увеличить размер ячейки Collection View
+    private let filmName: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,7 +38,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with model: String) {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else {return}
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
         
         posterImageView.sd_setImage(with: url, completed: nil)
     }
